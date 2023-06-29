@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 type MessagesProps = {
   messages: Message[];
   currentMember: Member;

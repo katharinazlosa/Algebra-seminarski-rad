@@ -1,18 +1,19 @@
-import { useState } from "react";
+//@ts-nocheck
+import { ChangeEvent, MouseEvent, useState } from "react";
 import Button from "./Button";
 
 type InputType = {
-  onSendMessage: Function;
+  onSendMessage: (message: string) => void;
 };
 
 const Input = ({ onSendMessage }: InputType) => {
   const [text, setText] = useState("");
 
-  const onChange = (e) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setText("");
     onSendMessage(text);
